@@ -9,8 +9,10 @@ public:
 
     Node(){
 
-        this->data = 0;
-        this->next = NULL;
+    this->data = 0;
+    
+    this->next = NULL;
+    
     }
 
     Node(int data){
@@ -20,29 +22,38 @@ public:
 
     }
 
-
 };
 
 
 class LinkList{
 
 public:
-
     Node* head;
 
-    LinkList(){
+    LinkList(){head = NULL;}
 
-      head = NULL;
+    void append(int);
 
-    }
+    void insert(int);
 
-void insert(int data){
+    void sort();
+
+    void Del();
+
+    void prepend();
+
+    void printList();
+
+};
+
+void LinkList::append(int data){
 
     Node* newNode = new Node(data);
 
       while (head == NULL)
       {
         head = newNode;
+
         return;
 
       }
@@ -57,18 +68,15 @@ void insert(int data){
 
     temp->next = newNode;
 
-    
-
     }
 
-void printList(){
+void LinkList::printList(){
 
     Node* temp = head;
 
     std::cout<<"items linked"<<std::endl;
 
-    while (temp != NULL)
-    {
+    while (temp != NULL){
         
         std::cout<<temp->data<<std::endl;
         
@@ -78,16 +86,14 @@ void printList(){
 }
 
 
-};
-
 int main(){
 
   LinkList llst;
 
-  llst.insert(10);
-  llst.insert(20);
-   llst.insert(6);
-  llst.insert(8);
+  llst.append(10);
+  llst.append(20);
+  llst.append(6);
+  llst.append(8);
 
   llst.printList();
 
