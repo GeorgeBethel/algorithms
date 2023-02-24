@@ -46,8 +46,6 @@ void display(){
         cout<< maze[i][j];
         cout<<" ";
 
-      
-
        }
 
          cout<<endl;
@@ -73,6 +71,26 @@ void printPath(){
          cout<<endl;
        
     }
+
+    cout<<"coordinates"<<endl;
+
+    for (int i = 0; i <= maze_dim - 1; i++)
+    {
+       for (int j = 0; j <= maze_dim - 1; j++)
+       {
+
+        if(sol_mat[i][j] == 1){
+        
+       cout<<"("<<i<<","<<j<<"), ";
+        cout<<" ";
+
+        }
+
+       }
+       
+      
+    }
+
     
 
 };
@@ -172,6 +190,8 @@ int main(int argc, char const *argv[])
     display();
 
     solveMaze(4,4);
+
+    cout<<" "<<endl;
 
     // printPath();
 
