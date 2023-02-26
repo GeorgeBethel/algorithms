@@ -23,7 +23,7 @@ class Graph{
             //links x to y
             edges[x].push_back(y);
 
-            //neccesary so that the search can start from any node on the tree e.g you can reach from 6 and also 6 from 5 
+            //neccesary so that the search can start from any node on the tree e.g you can reach 5 from 6 and also 6 from 5 
             edges[y].push_back(x);  
 
         }
