@@ -5,28 +5,26 @@ using namespace std;
 
 class Stack
 
-{
+            {
 
 
-public:
-    // int const size = 10;
-    int items[10];
-    Stack(){}
-    int top = -1;
-    // stack(int size);
-    void push(int item);
-    int pop();
-    bool isEmpty();
-    int peak();
-    void printStack();
+            public:
+                int top = -1;
+                static const int N = 10;
 
-};
+                int items[N];
+                void push(int item);
+                int pop();
+                bool isEmpty();
+                int peak();
+                void printStack();
+                Stack(){};
 
-
+            };
 
 void Stack::push(int item){
 
-    if(top > 10 -1){
+    if(top > N -1){
 
         cout<<"stack is full"<<endl;
 
@@ -81,7 +79,7 @@ int Stack::peak(){
 
 void Stack::printStack(){
 
-    for(int i = 0; i <= 6; i++){
+    for(int i = 0; i <= 4; i++){
 
         cout<<"item at index ["<<i<<"] :"<<pop()<<endl;
 
