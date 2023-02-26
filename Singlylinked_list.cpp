@@ -164,17 +164,21 @@ int main(){
   llst.append(20);
   llst.append(6);
   llst.append(8);
+   llst.append(7);
+  llst.append(40);
+  llst.append(5);
+  llst.append(30);
   
 
   llst.printList();
 
-  llst.Delete(20);
+  llst.Delete(12);
 
   llst.printList();
 
-  // Node* location = llst.search(10);
+  Node* location = llst.search(6);
 
-  // std::cout<<"pointer location of data 10: "<< location <<std::endl;
+  std::cout<<"pointer location of data 6: "<< location <<std::endl;
 
 
 }

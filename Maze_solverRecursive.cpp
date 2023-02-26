@@ -189,7 +189,7 @@ int main(int argc, char const *argv[])
     
     display();
 
-    solveMaze(4,4);
+    solveMaze(3,3);
 
     cout<<" "<<endl;
 
