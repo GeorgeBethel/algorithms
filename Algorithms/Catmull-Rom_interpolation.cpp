@@ -11,9 +11,10 @@ Introduction
 =======================
 Splines are a mathematical means of representing a curve, by specifying a series of points at intervals along the curve and defining a 
 function that allows additional points within an interval to be calculated.  There are various functions available to approximate a curve, 
-but in this article we will focus on a variety of spline known as the Catmull-Rom spline.
+but in this method is focused on a spline known as the Catmull-Rom spline.
 
 Catmull-Rom Splines
+======================
 The points that define a spline are known as "Control Points".  One of the features of the Catmull-Rom spline is 
 that the specified curve will pass through all of the control points - this is not true of all types of splines. 
 
@@ -168,12 +169,17 @@ void catmullRomInterpolation::printPoints(){
 
 int main(){
 
+//creat window object
 sf::RenderWindow window(sf::VideoMode(800, 600), "before Catmull-Rom Interpolation");
 sf::RenderWindow window2(sf::VideoMode(800, 600), "after Catmull-Rom Interpolation");
+
+//set frame rate limit
 window2.setFramerateLimit(60);
 window.setFramerateLimit(60);
 
-std::vector<Point> input_points = {{100.0, 300.0}, {200.0, 200.0}, {300.0, 250.0}, {400.0, 150.0}, {500.0, 350.0}, {600.0, 250.0}, {700.0, 300.0}};
+// creat vector of type point. add more points as you wish
+
+std::vector<Point> input_points = {{100.0, 300.0}, {200.0, 200.0}, {300.0, 250.0}, {400.0, 150.0}, {500.0, 350.0}, {600.0, 250.0}, {700.0, 300.0}, {780, 250}};
 
 catmullRomInterpolation interpolate;
 
@@ -213,7 +219,7 @@ sf::VertexArray curves(sf::LineStrip, interpolatedPoints.size());
 
         }
 
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
         window.draw(lines);
         window2.draw(curves);
         window.display();
