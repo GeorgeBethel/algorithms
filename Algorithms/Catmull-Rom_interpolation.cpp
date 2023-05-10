@@ -168,7 +168,9 @@ void catmullRomInterpolation::printPoints(){
 
 int main(){
 
-sf::RenderWindow window(sf::VideoMode(800, 600), "Catmull-Rom Interpolation");
+sf::RenderWindow window(sf::VideoMode(800, 600), "before Catmull-Rom Interpolation");
+sf::RenderWindow window2(sf::VideoMode(800, 600), "after Catmull-Rom Interpolation");
+window2.setFramerateLimit(60);
 window.setFramerateLimit(60);
 
 std::vector<Point> input_points = {{100.0, 300.0}, {200.0, 200.0}, {300.0, 250.0}, {400.0, 150.0}, {500.0, 350.0}, {600.0, 250.0}, {700.0, 300.0}};
@@ -181,24 +183,41 @@ interpolate.printPoints();
 
 auto interpolatedPoints = interpolate.getPoints();
 
-sf::VertexArray curve(sf::LineStrip, interpolatedPoints.size());
-    for (int i = 0; i < interpolatedPoints.size(); i++) {
-        curve[i].position = sf::Vector2f(interpolatedPoints[i].x_, interpolatedPoints[i].y_);
-        curve[i].color = sf::Color::Red;
+sf::VertexArray lines(sf::LineStrip, input_points.size());
+    for (int i = 0; i < input_points.size(); i++) {
+        lines[i].position = sf::Vector2f(input_points[i].x_, input_points[i].y_);
+        lines[i].color = sf::Color::Red;
     }
 
-    while (window.isOpen())
+sf::VertexArray curves(sf::LineStrip, interpolatedPoints.size());
+    for (int i = 0; i < interpolatedPoints.size(); i++) {
+        curves[i].position = sf::Vector2f(interpolatedPoints[i].x_, interpolatedPoints[i].y_);
+        curves[i].color = sf::Color::Red;
+    }
+
+    while (window.isOpen() && window2.isOpen())
     {
         sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+        }
+
+        sf::Event event1;
+        while (window2.pollEvent(event1))
+        {
+            if (event1.type == sf::Event::Closed)
+                window2.close();
+
         }
 
         window.clear(sf::Color::White);
-        window.draw(curve);
+        window.draw(lines);
+        window2.draw(curves);
         window.display();
+        window2.display();
     }
 
 return 0;
