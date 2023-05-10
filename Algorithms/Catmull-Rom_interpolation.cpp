@@ -90,9 +90,9 @@ class catmullRomInterpolation{
 
     public:
         std::vector<Point> points_;
-        catmullRomInterpolation(std::vector<Point> points);
+        catmullRomInterpolation(std::vector<Point>& points);
         catmullRomInterpolation();
-        void get_intermediatePoints(std::vector<Point> points);
+        void get_intermediatePoints(std::vector<Point>& points);
         void printPoints();
         std::vector<Point> getPoints();
 
@@ -103,7 +103,7 @@ class catmullRomInterpolation{
 
 };
 
-catmullRomInterpolation::catmullRomInterpolation(std::vector<Point> points): points_{points}{}
+catmullRomInterpolation::catmullRomInterpolation(std::vector<Point>& points): points_{points}{}
 
 catmullRomInterpolation::catmullRomInterpolation(){std::cout<<"hello"<<std::endl;}
 
@@ -115,7 +115,7 @@ std::vector<Point> catmullRomInterpolation::getPoints(){
 
 }
 
-void catmullRomInterpolation::get_intermediatePoints(std::vector<Point> points){
+void catmullRomInterpolation::get_intermediatePoints(std::vector<Point>& points){
 
     for(int p = 1; p < points.size()-2; p++){ // to ensure that there is exactly 4 points available to interpolate
 
