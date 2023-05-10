@@ -12,8 +12,6 @@ struct Point
 
 };
 
-
-
 class catmullRomInterpolation{
 
     public:
@@ -30,13 +28,9 @@ class catmullRomInterpolation{
 
 };
 
+catmullRomInterpolation::catmullRomInterpolation(std::vector<Point> points): points_{points}{}
 
-catmullRomInterpolation::catmullRomInterpolation(std::vector<Point> points): points_{points}
-
-
-{}
-
-  catmullRomInterpolation::catmullRomInterpolation(){std::cout<<"hello"<<std::endl;}
+catmullRomInterpolation::catmullRomInterpolation(){std::cout<<"hello"<<std::endl;}
 
 void catmullRomInterpolation::get_intermediatePoints(std::vector<Point> points){
 
@@ -69,10 +63,7 @@ void catmullRomInterpolation::get_intermediatePoints(std::vector<Point> points){
             float c_ty = a_y*t*t*t + b_y*t*t + c_y*t + d_y;
 
             computePolynomial(c_tx, c_ty);
-
-
         }
-
 
     }
 }
@@ -80,32 +71,27 @@ void catmullRomInterpolation::get_intermediatePoints(std::vector<Point> points){
 void catmullRomInterpolation::computePolynomial(float c_tx, float c_ty){
 
 
-            Point C_xy = Point(c_tx, c_ty);
+    Point C_xy = Point(c_tx, c_ty);
 
-            output_points.push_back(C_xy);
+    output_points.push_back(C_xy);
     
 }
 
 
 void catmullRomInterpolation::printPoints(){
 
-
     for(int p = 0; p < output_points.size(); p++){
 
             std::cout<<"Point ("<<output_points[p].x_<<","<<output_points[p].y_<<")"<<std::endl;
 
     }
-
 }
-
-
 
 
 int main(){
 
 
 std::vector<Point> input_points = {Point(0.0f, 0.0f), Point(1.0f, 1.0f), Point(2.0f, 0.0f), Point(3.0f, 1.0f), Point(4.0f, 0.0f)};
-
 
 catmullRomInterpolation interpolate;
 
