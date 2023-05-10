@@ -40,6 +40,38 @@ q(t) = 0.5 *(  	(2 * P1) + (-P0 + P2) * t + (2*P0 - 5*P1 + 4*P2 - P3) * t2 + (-P
 
 the line will pass through all intermediate control points created by the above equation
 
+## dependencies
+
+SMFL 
+
+    # Installation commands
+
+    - sudo apt-get install libopenal-dev 
+
+    - sudo apt-get install -y vorbis-tools 
+
+    - sudo apt-get install libvorbis-dev 
+
+    - sudo apt install libflac-dev 
+
+    Or install from source 
+
+    - git clone https://github.com/SFML/SFML.git 
+
+    - cd SFML 
+
+    - mkdir build && cd build 
+
+    - cmake .. 
+
+    - make 
+
+    - make install 
+
+## how to compile
+
+compile using the command: c++ -o Catmull-Rom_interpolation Catmull-Rom_interpolation.cpp -lsfml-graphics -lsfml-window -lsfml-system
+
 */
 
 struct Point
