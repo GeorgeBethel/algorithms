@@ -5,5 +5,5 @@ A repository of algorithm implementation
 
 https://github.com/GeorgeBethel/algorithms/blob/main/Algorithms/Catmull-Rom_interpolation.cpp
 
-![Alt catmull-rom-interpolation plot](/home/george/algorithms/images/catmull-rom-spline.png)
+![Alt catmull-rom-interpolation plot](https://github.com/GeorgeBethel/algorithms/blob/main/images/catmull-rom-spline.png)
 
