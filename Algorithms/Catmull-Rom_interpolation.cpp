@@ -220,6 +220,7 @@ sf::VertexArray curves(sf::LineStrip, interpolatedPoints.size());
         }
 
         window.clear(sf::Color::Black);
+        window2.clear(sf::Color::White);
         window.draw(lines);
         window2.draw(curves);
         window.display();
